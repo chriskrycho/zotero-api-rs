@@ -16,6 +16,15 @@ struct ISBN(String);
 
 struct Date(String);
 
+// TODO: implement from_str to parse?
+struct RunningTime {
+    years: u16,
+    days: u16,
+    hours: u8,
+    minutes: u8,
+    seconds: u8
+}
+
 enum Name {
     Split {
         first: Option<String>,
@@ -54,7 +63,33 @@ enum Item {
         collections: Vec<CollectionId>,
         relations: HashMap<String, Box<dyn AsRef<str>>>,
     },
-    AudioRecording,
+    AudioRecording {
+        title: String,
+        creators: Vec<Creator>,
+        abstract_note: Option<String>,
+        audio_recording_format: Option<String>, // ?
+        series_number: Option<String>,
+        volume: Option<String>,
+        number_of_volumes: u16,
+        place: Option<String>,
+        label: Option<String>,
+        date: Option<String>,
+        running_time: RunningTime,
+        language: Option<String>,
+        isbn: Option<ISBN>,
+        short_title: Option<String>,
+        archive: Option<String>,
+        archive_location: Option<String>,
+        library_catalog: Option<String>,
+        call_number: Option<String>,
+        url: Option<Url>,
+        access_date: Option<Date>,
+        rights: Option<String>,
+        extra: Option<String>,
+        tags: Vec<String>,
+        collections: Vec<CollectionId>,
+        relations: HashMap<String, Box<dyn AsRef<str>>>,
+    },
     Bill,
     BlogPost,
     Book {
