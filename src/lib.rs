@@ -40,7 +40,7 @@ enum Item {
     Bill,
     BlogPost,
     Book {
-        title: Option<String>,
+        title: String,
         creators: Vec<Creator>,
         abstract_note: Option<String>,
         series: Option<String>,
